@@ -14,23 +14,8 @@ cabal-version: >=1.8
 
 ------------------------------------------------------------------------------
 library
-  exposed-modules:
-    Text.Playlist
-    XMonad.Local.Action
-    XMonad.Local.Keys
-    XMonad.Local.Layout
-    XMonad.Local.Log
-    XMonad.Local.Music
-    XMonad.Local.Prompt
-    XMonad.Local.Theme
-    XMonad.Local.Workspaces
-
-  other-modules:
-    Text.Playlist.Internal
-    Text.Playlist.Simple
-
   hs-source-dirs: src
-  ghc-options: -Wall -Werror
+  ghc-options: -Wall 
 
   build-depends: base           >= 4.0  && < 5.0
                , X11            >= 1.6  && < 2.0
@@ -42,24 +27,24 @@ library
                , parsec         >= 3.1  && < 3.2
                , text           >= 0.11 && < 1.0
                , xmonad         == 0.11
-               , xmonad-contrib == 0.11.1
-               , xmonad-extras  == 0.11
+               , xmonad-contrib == 0.11.3
+               , xmonad-extras  == 0.12
 
 ------------------------------------------------------------------------------
 executable xmonadrc
   main-is: xmonadrc.hs
-  ghc-options: -Wall -Werror
+  ghc-options: -Wall
   build-depends: base
                , xmonad
                , xmonad-contrib
                , xmonadrc
 
 ------------------------------------------------------------------------------
-executable checkrc
-  main-is: checkrc.hs
-  ghc-options: -Wall -Werror
-  build-depends: base
-               , containers
-               , xmonad
-               , xmonad-contrib
-               , xmonadrc
+--executable checkrc
+--  main-is: checkrc.hs
+--  ghc-options: -Wall
+--  build-depends: base
+--               , containers
+--               , xmonad
+--               , xmonad-contrib
+--               , xmonadrc

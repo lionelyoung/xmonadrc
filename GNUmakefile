@@ -8,7 +8,7 @@ SANDBOXD = .cabal-sandbox
 BIN      = $(SANDBOXD)/bin
 XMONAD   = $(HOME)/bin/xmonad
 XMONADRC = $(BIN)/xmonadrc
-DO_CHECK ?= YES
+DO_CHECK ?= NO
 
 ################################################################################
 .PHONEY: all install restart clean realclean
@@ -41,7 +41,6 @@ else
 endif
 
 $(XMONADRC): $(SRC) $(SANDBOX)
-	ghc -V | grep -q 7.6.3 # Required compiler version.
 	cabal install
 	$(CHECK)
 
