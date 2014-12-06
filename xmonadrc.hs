@@ -11,6 +11,7 @@ import XMonad.Layout.Magnifier
 import XMonad.Layout.LimitWindows
 import XMonad.Layout.FixedColumn
 import XMonad.Layout.PerWorkspace
+import XMonad.Layout.ThreeColumns
 -- End
 
 -- Hotkeys
@@ -20,7 +21,7 @@ import XMonad.Layout.PerWorkspace
 -- Mod-space: Rotate through the available layout algorithms
 -- Mod-shift-space: Resets the layouts on the current workspace to default
 
-myWorkspaces = ["work","web","media","chat","5","6","7","8","9"]
+myWorkspaces = ["work","web","three","chat","media","6","7","8","9"]
 
 main = xmonad xfceConfig {
   modMask = mod4Mask  -- Super key as Mod
@@ -44,10 +45,12 @@ mySplit = magnifiercz' 1.3 $ Tall nmaster delta ratio
         -- Default proportion of screen occupied by master pane
         ratio   = 60/100
 myHalf = Tall 1 (25/100) (50/100)
+myThree = ThreeColMid 1 (3/100) (1/2)
 
 perWS = onWorkspace "work" ( myCode ||| Full ) $
         onWorkspace "chat"  ( myHalf ||| Mirror myHalf ||| Full ) $
         onWorkspace "web"  ( mySplit ||| Mirror mySplit ||| Full ) $
+        onWorkspace "three"  ( myThree ||| Full ) $
         layoutHook defaultConfig
 
 -- avoidStruts: show the XFCE panel
