@@ -47,7 +47,7 @@ mySplit = magnifiercz' 1.3 $ Tall nmaster delta ratio
 myHalf = Tall 1 (25/100) (50/100)
 myThree = ThreeColMid 1 (3/100) (1/2)
 
-perWS = onWorkspace "work" ( myCode ||| Full ) $
+perWS = onWorkspace "work" ( myCode ||| myThree ||| Full ) $
         onWorkspace "chat"  ( myHalf ||| Mirror myHalf ||| Full ) $
         onWorkspace "web"  ( mySplit ||| Mirror mySplit ||| Full ) $
         onWorkspace "three"  ( myThree ||| Full ) $
