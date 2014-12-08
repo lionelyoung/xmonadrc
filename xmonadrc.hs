@@ -7,7 +7,6 @@ import XMonad.Hooks.ManageDocks
 -- Layout
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ToggleLayouts
-import XMonad.Layout.Magnifier
 import XMonad.Layout.LimitWindows
 import XMonad.Layout.FixedColumn
 import XMonad.Layout.PerWorkspace
@@ -35,8 +34,8 @@ main = xmonad xfceConfig {
 -- layouts
 -- FixedColumn 1 20 x 10, where x is number of columns.
 -- 170 gives an 80/80 vertical-split plus room for gutters in vim
-myCode = limitWindows 3 $ magnifiercz' 1.4 $ FixedColumn 1 20 170 10
-mySplit = magnifiercz' 1.3 $ Tall nmaster delta ratio
+myCode = limitWindows 3 $ FixedColumn 1 20 170 10
+mySplit = Tall nmaster delta ratio
     where
         -- The default number of windows in the master pane
         nmaster = 1
